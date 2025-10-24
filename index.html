@@ -101,6 +101,51 @@
             background: rgba(0, 8, 38, 0.7);
             border: 1px solid rgba(0, 123, 255, 0.2);
             backdrop-filter: blur(10px);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(0, 123, 255, 0.1) !important;
+            color: white !important;
+            border-radius: 15px 15px 0 0 !important;
+        }
+
+        .accordion-button.collapsed {
+            border-radius: 15px !important;
+        }
+
+        .accordion-button::after {
+            filter: invert(1);
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+
+        .accordion-item {
+            background: transparent !important;
+        }
+
+        .accordion {
+            --bs-accordion-bg: transparent;
+            --bs-accordion-border-color: transparent;
+        }
+
+        .accordion-button {
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 123, 255, 0.2) !important;
+        }
+
+        .accordion-collapse {
+            border: 1px solid rgba(0, 123, 255, 0.2) !important;
+            border-top: none !important;
+            margin-top: -1px;
         }
             background: #f8f9fa;
             border-radius: 15px;
@@ -215,41 +260,71 @@
     <!-- FAQ -->
     <section id="faq" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Preguntas Frecuentes</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            ¿Es seguro revivir mis recuerdos?
-                        </button>
-                    </h2>
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Sí, nuestra tecnología ha sido rigurosamente probada y certificada por expertos en neurociencia. Utilizamos protocolos de seguridad avanzados para garantizar una experiencia segura y controlada.
+            <h2 class="text-center section-title">Preguntas Frecuentes</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion custom-accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3 border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                                    style="background: rgba(0, 8, 38, 0.7); color: white; border: 1px solid rgba(0, 123, 255, 0.2);">
+                                    <i class="fas fa-shield-alt me-3"></i>
+                                    ¿Es seguro revivir mis recuerdos?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background: rgba(0, 8, 38, 0.5); color: white; backdrop-filter: blur(10px);">
+                                    Sí, nuestra tecnología ha sido rigurosamente probada y certificada por expertos en neurociencia. 
+                                    Utilizamos protocolos de seguridad avanzados y seguimos estrictos estándares médicos para garantizar:
+                                    <ul class="mt-3">
+                                        <li>Monitoreo constante de signos vitales</li>
+                                        <li>Supervisión por profesionales especializados</li>
+                                        <li>Sistemas de seguridad redundantes</li>
+                                        <li>Protocolos de emergencia establecidos</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            ¿Cuánto dura una sesión típica?
-                        </button>
-                    </h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Las sesiones estándar duran entre 30 y 60 minutos, dependiendo del tipo de experiencia y las necesidades específicas del cliente.
+                        <div class="accordion-item mb-3 border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                                    style="background: rgba(0, 8, 38, 0.7); color: white; border-radius: 15px; border: 1px solid rgba(0, 123, 255, 0.2);">
+                                    <i class="fas fa-clock me-3"></i>
+                                    ¿Cuánto dura una sesión típica?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background: rgba(0, 8, 38, 0.5); color: white; border-radius: 0 0 15px 15px;">
+                                    Las sesiones se adaptan a cada cliente:
+                                    <ul class="mt-3">
+                                        <li>Sesión inicial de consulta: 45 minutos</li>
+                                        <li>Sesión estándar: 30-60 minutos</li>
+                                        <li>Sesión profunda: hasta 90 minutos</li>
+                                        <li>Incluye tiempo de preparación y recuperación</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            ¿Puedo modificar mis recuerdos?
-                        </button>
-                    </h2>
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            No, nuestra tecnología está diseñada solo para visualizar y experimentar recuerdos existentes, no para modificarlos. Esto garantiza la autenticidad de tus memorias.
+                        <div class="accordion-item mb-3 border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                                    style="background: rgba(0, 8, 38, 0.7); color: white; border-radius: 15px; border: 1px solid rgba(0, 123, 255, 0.2);">
+                                    <i class="fas fa-brain me-3"></i>
+                                    ¿Puedo modificar mis recuerdos?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background: rgba(0, 8, 38, 0.5); color: white; border-radius: 0 0 15px 15px;">
+                                    No, nuestra tecnología está diseñada exclusivamente para visualizar y experimentar recuerdos existentes. 
+                                    Esto garantiza:
+                                    <ul class="mt-3">
+                                        <li>Autenticidad total de las memorias</li>
+                                        <li>Integridad de las experiencias</li>
+                                        <li>Preservación de la memoria original</li>
+                                        <li>Cumplimiento con estándares éticos</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,35 +333,88 @@
     </section>
 
     <!-- Opiniones -->
-    <section id="opiniones" class="py-5 bg-light">
+    <section id="opiniones" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Opiniones de Nuestros Clientes</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="text-warning mb-2">
-                            ★★★★★
+            <h2 class="text-center section-title">Opiniones de Nuestros Clientes</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="display-4 me-3">4.9</div>
+                        <div>
+                            <div class="text-warning fs-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="text-muted">Basado en 184 reseñas</div>
                         </div>
-                        <p class="mb-2">"Una experiencia increíble poder revivir momentos con mis seres queridos. La tecnología es asombrosa."</p>
-                        <strong>- María García</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                <span>MG</span>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">María García</h6>
+                                <small class="text-muted">Hace 2 días</small>
+                            </div>
+                        </div>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"Increíble experiencia poder revivir momentos con mis seres queridos. La calidad de los recuerdos es extraordinaria y el equipo profesional hace que te sientas seguro en todo momento. La tecnología es verdaderamente revolucionaria."</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="text-warning mb-2">
-                            ★★★★★
+                    <div class="testimonial-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                <span>JP</span>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Juan Pérez</h6>
+                                <small class="text-muted">Hace 1 semana</small>
+                            </div>
                         </div>
-                        <p class="mb-2">"La calidad de los recuerdos recuperados es sorprendente. Me ayudó mucho en mi proceso de sanación."</p>
-                        <strong>- Juan Pérez</strong>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"Deep Rest ha cambiado mi vida. La capacidad de revivir momentos especiales con tanta claridad es algo que nunca pensé que sería posible. El proceso es muy profesional y la tecnología es asombrosa."</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="text-warning mb-2">
-                            ★★★★★
+                    <div class="testimonial-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                <span>AM</span>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Ana Martínez</h6>
+                                <small class="text-muted">Hace 2 semanas</small>
+                            </div>
                         </div>
-                        <p class="mb-2">"El equipo profesional es excepcional. Me sentí seguro y acompañado durante todo el proceso."</p>
-                        <strong>- Ana Martínez</strong>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"Una experiencia transformadora. El equipo es muy profesional y la tecnología es segura y efectiva. Pude revivir recuerdos que creía perdidos con una claridad sorprendente."</p>
                     </div>
                 </div>
             </div>
