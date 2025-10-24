@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deep Rest — Revive tus Sueños</title>
+    <meta name="description"
+        content="Deep Rest: tecnología para revivir sueños y recuerdos de forma segura. Servicios, FAQs y testimonios.">
+    <style>
+        :root {
+            --bg: #0b0b0d;
+            --panel: #121217;
+            --accent: #8b2eff;
+            --accent-2: #ff5c8a;
+            --muted: #9aa0a6;
+            --glass: rgba(255, 255, 255, 0.03);
+            --max-width: 1100px;
+            color-scheme: dark;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: linear-gradient(180deg, #050506 0%, #081018 60%);
+            margin: 0;
+            color: #e6eef8
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(139, 46, 255, 0.16)
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            margin: 0
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 600
+        }
+
+        nav a:hover {
+            color: #fff
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: center;
+            padding: 36px 0
+        }
+
+        .hero-left {
+            padding: 28px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border-radius: 14px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        .kicker {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px
+        }
+
+        .hero h2 {
+            margin: 8px 0 12px;
+            font-size: 34px;
+            line-height: 1.02
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin: 0 0 18px
+        }
+
+        .cta {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            padding: 12px 18px;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none
+        }
+
+        .cta.secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            margin-left: 10px;
+            padding: 10px 14px
+        }
+
+        /* Device / image panel */
+        .device {
+            background: radial-gradient(1200px 400px at 10% 10%, rgba(139, 46, 255, 0.12), transparent 10%), linear-gradient(180deg, #080710, #0b0b0e);
+            border-radius: 20px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        .machine {
+            height: 320px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .machine::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 30% 20%, rgba(139, 46, 255, 0.08), transparent 10%);
+        }
+
+        .machine img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%) contrast(1.05)
+        }
+
+        .machine .label {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            background: var(--glass);
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        /* Sections */
+        section {
+            padding: 48px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px
+        }
+
+        .card {
+            background: var(--panel);
+            padding: 18px;
+            border-radius: 12px
+        }
+
+        h3 {
+            margin: 0 0 10px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Services images */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .service {
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            height: 160px;
+            display: flex;
+            flex-direction: column
+        }
+
+        .service .simg {
+            flex: 1;
+            background-size: cover;
+            background-position: center
+        }
+
+        .service .stxt {
+            padding: 10px;
+            font-weight: 700
+        }
+
+        /* FAQ */
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .faq-item {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+            padding: 14px;
+            border-radius: 10px
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .test {
+            background: linear-gradient(90deg, rgba(139, 46, 255, 0.03), rgba(255, 92, 138, 0.02));
+            padding: 14px;
+            border-radius: 10px
+        }
+
+        footer {
+            padding: 28px 0;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .social a {
+            margin-left: 12px;
+            color: var(--muted);
+            text-decoration: none
+        }
+
+        /* Responsive */
+        @media (max-width:980px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .device {
+                order: -1
+            }
+
+            .services {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (max-width:520px) {
+            nav a {
+                margin-left: 8px;
+                font-size: 14px
+            }
+
+            .services {
+                grid-template-columns: 1fr
+            }
+
+            .hero h2 {
+                font-size: 26px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">DR</div>
+                <div>
+                    <h1>Deep Rest</h1>
+                    <div class="muted" style="font-size:12px">Revive tus sueños • Tecnología onírica</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#hero">Inicio</a>
+                <a href="#about">Sobre Nosotros</a>
+                <a href="#services">Servicios</a>
+                <a href="#faq">FAQ</a>
+                <a href="#reviews">Opiniones</a>
+                <a class="cta" href="#contact">Contáctanos</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero" class="hero">
+                <div class="hero-left">
+                    <div class="kicker">Máquina experimental</div>
+                    <h2>Revive recuerdos y explora tus sueños con seguridad</h2>
+                    <p class="muted">Deep Rest ofrece sesiones controladas con nuestra máquina "Liminal" capaz de
+                        mapear, restaurar y reproducir memorias oníricas. Ideal para terapia, arte y entretenimiento
+                        inmersivo.</p>
+                    <a class="cta" href="#contact">Contáctanos</a>
+                    <a class="cta secondary" href="#services">Ver servicios</a>
+                </div>
+
+                <aside class="device">
+                    <div class="machine">
+                        <!-- Futuristic bed illustration -->
+                        <img src="assets/bed-futuristic.svg" alt="Cama futurista Liminal" />
+                        <div class="label">Liminal Bed · Alpha 0.9</div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px">
+                        <small class="muted">Sesiones desde 120€</small>
+                        <small class="muted">Valoración: ★★★★☆</small>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="about">
+                <div class="container">
+                    <div class="grid">
+                        <div>
+                            <h3>Sobre Deep Rest</h3>
+                            <p class="muted">Deep Rest es una pyme especializada en neurotecnología experimental
+                                aplicada al mundo onírico. Nuestro equipo de ingenieros, terapeutas y artistas fusiona
+                                hardware seguro con algoritmos interpretativos para revivir, registrar y modular
+                                recuerdos y sueños de forma ética y consentida.</p>
+                            <p class="muted">Trabajamos con protocolos de seguridad, sesiones guiadas y cifrado de
+                                datos. Nuestro objetivo: permitir el acceso creativo y terapéutico a la experiencia
+                                onírica sin comprometer la privacidad.</p>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h4>Cómo funciona</h4>
+                                <ol class="muted">
+                                    <li>Mapeo no invasivo de ondas cerebrales durante sueño REM.</li>
+                                    <li>Reconstrucción de trazas visuales y emocionales mediante IA.</li>
+                                    <li>Reproducción controlada en sala aislada con guía profesional.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services">
+                <div class="container">
+                    <h3>Servicios</h3>
+                    <p class="muted">Ofrecemos paquetes para creadores, terapeutas y experiencias privadas. A
+                        continuación ejemplos representativos con imágenes de muestra.</p>
+                    <div class="services" style="margin-top:18px">
+                        <div class="service">
+                            <div class="simg" style="background-image:linear-gradient(180deg, rgba(139,46,255,0.25), rgba(255,92,138,0.12)), url('assets/service-session.svg')">
+                            </div>
+                            <div class="stxt">Registro de Sueños</div>
+                        </div>
+                        <div class="service">
+                            <div class="simg" style="background-image:linear-gradient(180deg, rgba(139,46,255,0.18), rgba(255,92,138,0.08)), url('assets/bed-futuristic.svg')">
+                            </div>
+                            <div class="stxt">Recuperación de Recuerdos</div>
+                        </div>
+                        <div class="service">
+                            <div class="simg" style="background-image:linear-gradient(180deg, rgba(139,46,255,0.12), rgba(255,92,138,0.06)), url('assets/pillow-highlight.svg')">
+                            </div>
+                            <div class="stxt">Experiencias Inmersivas</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq">
+                <div class="container">
+                    <h3>Preguntas Frecuentes</h3>
+                    <div class="faq">
+                        <div class="faq-item">
+                            <strong>¿Es seguro?</strong>
+                            <div class="muted">Sí. Usamos técnicas no invasivas (EEG) y protocolos clínicos supervisados
+                                por profesionales. Los datos se almacenan cifrados y sólo bajo consentimiento.</div>
+                        </div>
+                        <div class="faq-item">
+                            <strong>¿Puedo recuperar cualquier recuerdo?</strong>
+                            <div class="muted">La tecnología mejora la reconstrucción pero no garantiza recuperar cada
+                                detalle. Funciona mejor con recuerdos recientes y trazas emocionalmente marcadas.</div>
+                        </div>
+                        <div class="faq-item">
+                            <strong>¿Ofrecen soporte terapéutico?</strong>
+                            <div class="muted">Sí. Contamos con psicólogos formados para sesiones pre y
+                                post-visualización.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reviews">
+                <div class="container">
+                    <h3>Opiniones</h3>
+                    <p class="muted">Reseñas verificadas (simuladas) — visualízalas como en Google Reviews.</p>
+                    <div class="card" style="padding:16px;margin-top:12px">
+                        <div id="review-carousel" style="position:relative;overflow:hidden">
+                            <div class="carousel-track" style="display:flex;transition:transform .5s ease">
+                                <!-- Review items -->
+                                <div class="review-item" style="min-width:100%;padding:12px">
+                                    <div style="display:flex;align-items:center;gap:12px">
+                                        <div style="width:48px;height:48px;border-radius:10px;background:#11131a;display:flex;align-items:center;justify-content:center;font-weight:700">MP</div>
+                                        <div>
+                                            <strong>María P.</strong>
+                                            <div class="muted">Madrid · ★★★★★</div>
+                                        </div>
+                                    </div>
+                                    <div class="muted" style="margin-top:12px">"La sesión con Liminal me ayudó a recordar un sueño que llevaba años intentando evocar. Todo fue cuidadoso y profesional."</div>
+                                </div>
+                                <div class="review-item" style="min-width:100%;padding:12px">
+                                    <div style="display:flex;align-items:center;gap:12px">
+                                        <div style="width:48px;height:48px;border-radius:10px;background:#11131a;display:flex;align-items:center;justify-content:center;font-weight:700">CR</div>
+                                        <div>
+                                            <strong>Carlos R.</strong>
+                                            <div class="muted">Barcelona · ★★★★☆</div>
+                                        </div>
+                                    </div>
+                                    <div class="muted" style="margin-top:12px">"Como artista, usé los registros para crear una pieza audiovisual. La fidelidad emocional es impresionante."</div>
+                                </div>
+                                <div class="review-item" style="min-width:100%;padding:12px">
+                                    <div style="display:flex;align-items:center;gap:12px">
+                                        <div style="width:48px;height:48px;border-radius:10px;background:#11131a;display:flex;align-items:center;justify-content:center;font-weight:700">AJ</div>
+                                        <div>
+                                            <strong>Ana J.</strong>
+                                            <div class="muted">Valencia · ★★★★★</div>
+                                        </div>
+                                    </div>
+                                    <div class="muted" style="margin-top:12px">"Excelente atención y resultados sorprendentes. Recomiendo la experiencia guiada."</div>
+                                </div>
+                            </div>
+
+                            <!-- Controls -->
+                            <button id="prev-review" aria-label="Anterior" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:var(--muted);font-size:20px">◀</button>
+                            <button id="next-review" aria-label="Siguiente" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:var(--muted);font-size:20px">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="container">
+                    <div class="grid">
+                        <div>
+                            <h3>Contacta con Deep Rest</h3>
+                            <p class="muted">Reserva una consulta o pide información. Respondenos y acordaremos una
+                                evaluación previa gratuita.</p>
+                            <p class="muted"><strong>Email:</strong> <a href="mailto:info@deeprest.example"
+                                    style="color:var(--accent)">info@deeprest.example</a></p>
+                            <p class="muted"><strong>Teléfono:</strong> +34 600 000 000</p>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h4>Formulario rápido</h4>
+                                <form action="mailto:info@deeprest.example" method="post" enctype="text/plain">
+                                    <div style="display:flex;flex-direction:column;gap:8px">
+                                        <input name="nombre" placeholder="Tu nombre"
+                                            style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+                                        <input name="email" placeholder="Tu email"
+                                            style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+                                        <textarea name="mensaje" placeholder="Mensaje" rows="4"
+                                            style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+                                        <div style="display:flex;gap:8px">
+                                            <button class="cta" type="submit">Enviar</button>
+                                            <a class="cta secondary" href="mailto:info@deeprest.example">Enviar por
+                                                correo</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <strong>Deep Rest</strong>
+                <div class="muted">© 2025 Deep Rest · Todos los derechos reservados</div>
+            </div>
+            <div class="social">
+                Sigue:
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+</div>
+
+    <script>
+        // Simple reviews carousel
+        (function(){
+            const track = document.querySelector('.carousel-track');
+            const items = document.querySelectorAll('.review-item');
+            const prev = document.getElementById('prev-review');
+            const next = document.getElementById('next-review');
+            let idx = 0;
+            const total = items.length;
+            let timer = null;
+
+            function show(i){
+                idx = (i + total) % total;
+                track.style.transform = `translateX(${-idx * 100}%)`;
+            }
+
+            prev.addEventListener('click', ()=>{ show(idx-1); resetTimer(); });
+            next.addEventListener('click', ()=>{ show(idx+1); resetTimer(); });
+
+            function startTimer(){
+                timer = setInterval(()=> show(idx+1), 5000);
+            }
+            function resetTimer(){
+                clearInterval(timer); startTimer();
+            }
+
+            // init
+            show(0);
+            startTimer();
+        })();
+    </script>
+</body>
+
+</html>
