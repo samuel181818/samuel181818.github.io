@@ -1,558 +1,324 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Deep Rest — Revive tus Sueños</title>
-    <meta name="description"
-        content="Deep Rest: tecnología para revivir sueños y recuerdos de forma segura. Servicios, FAQs y testimonios.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Rest - Revive tus sueños y recuerdos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --bg: #0b0b0d;
-            --panel: #121217;
-            --accent: #8b2eff;
-            --accent-2: #ff5c8a;
-            --muted: #9aa0a6;
-            --glass: rgba(255, 255, 255, 0.03);
-            --max-width: 1100px;
-            color-scheme: dark;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
-
-        html,
         body {
-            height: 100%;
-            background: linear-gradient(180deg, #050506 0%, #081018 60%);
-            margin: 0;
-            color: #e6eef8
-        }
-
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 24px
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 0
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px
-        }
-
-        .logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            box-shadow: 0 6px 18px rgba(139, 46, 255, 0.16)
-        }
-
-        .brand h1 {
-            font-size: 18px;
-            margin: 0
-        }
-
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 18px;
-            font-weight: 600
-        }
-
-        nav a:hover {
-            color: #fff
-        }
-
-        /* Hero */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 28px;
-            align-items: center;
-            padding: 36px 0
-        }
-
-        .hero-left {
-            padding: 28px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-            border-radius: 14px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
-        }
-
-        .kicker {
-            font-size: 13px;
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px
-        }
-
-        .hero h2 {
-            margin: 8px 0 12px;
-            font-size: 34px;
-            line-height: 1.02
-        }
-
-        .hero p {
-            color: var(--muted);
-            margin: 0 0 18px
-        }
-
-        .cta {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--accent), var(--accent-2));
-            padding: 12px 18px;
-            border-radius: 10px;
+            background-color: #000511;
             color: #fff;
-            font-weight: 700;
-            text-decoration: none
+        }
+        
+        .navbar {
+            background: rgba(0, 5, 17, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.1);
         }
 
-        .cta.secondary {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: var(--muted);
-            margin-left: 10px;
-            padding: 10px 14px
+        .section-title {
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
         }
 
-        /* Device / image panel */
-        .device {
-            background: radial-gradient(1200px 400px at 10% 10%, rgba(139, 46, 255, 0.12), transparent 10%), linear-gradient(180deg, #080710, #0b0b0e);
-            border-radius: 20px;
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px
-        }
-
-        .machine {
-            height: 320px;
-            border-radius: 12px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+        .hero-section {
+            background-color: #000511;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            text-align: center;
             position: relative;
-            overflow: hidden
-        }
-
-        .machine::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 30% 20%, rgba(139, 46, 255, 0.08), transparent 10%);
-        }
-
-        .machine img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(10%) contrast(1.05)
-        }
-
-        .machine .label {
-            position: absolute;
-            left: 18px;
-            bottom: 18px;
-            background: var(--glass);
-            padding: 8px 12px;
-            border-radius: 8px;
-            color: var(--muted);
-            font-weight: 600
-        }
-
-        /* Sections */
-        section {
-            padding: 48px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.02)
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px
-        }
-
-        .card {
-            background: var(--panel);
-            padding: 18px;
-            border-radius: 12px
-        }
-
-        h3 {
-            margin: 0 0 10px
-        }
-
-        .muted {
-            color: var(--muted)
-        }
-
-        /* Services images */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px
-        }
-
-        .service {
-            border-radius: 10px;
             overflow: hidden;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-            height: 160px;
-            display: flex;
-            flex-direction: column
         }
 
-        .service .simg {
-            flex: 1;
-            background-size: cover;
-            background-position: center
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 8, 38, 0.9), rgba(0, 8, 38, 0.5));
+            z-index: 1;
+        }
+        
+        .hero-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 0;
         }
 
-        .service .stxt {
-            padding: 10px;
-            font-weight: 700
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
-        /* FAQ */
-        .faq {
-            display: flex;
-            flex-direction: column;
-            gap: 10px
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8) !important;
         }
 
-        .faq-item {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
-            padding: 14px;
-            border-radius: 10px
+        .service-card {
+            background: rgba(0, 8, 38, 0.7);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
         }
 
-        /* Testimonials */
-        .testimonials {
-            display: flex;
-            flex-direction: column;
-            gap: 12px
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.3);
         }
 
-        .test {
-            background: linear-gradient(90deg, rgba(139, 46, 255, 0.03), rgba(255, 92, 138, 0.02));
-            padding: 14px;
-            border-radius: 10px
+        .service-card .card-body {
+            background: rgba(0, 8, 38, 0.9);
+            color: #fff;
         }
 
-        footer {
-            padding: 28px 0;
-            color: var(--muted);
-            display: flex;
-            justify-content: space-between;
-            align-items: center
+        .service-card img {
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
         }
 
-        .social a {
-            margin-left: 12px;
-            color: var(--muted);
-            text-decoration: none
+        .testimonial-card {
+            background: rgba(0, 8, 38, 0.7);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
         }
 
-        /* Responsive */
-        @media (max-width:980px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .device {
-                order: -1
-            }
-
-            .services {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .grid {
-                grid-template-columns: 1fr
-            }
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
         }
 
-        @media (max-width:520px) {
-            nav a {
-                margin-left: 8px;
-                font-size: 14px
-            }
-
-            .services {
-                grid-template-columns: 1fr
-            }
-
-            .hero h2 {
-                font-size: 26px
-            }
+        .social-icons a:hover {
+            color: #007bff;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <div class="brand">
-                <div class="logo">DR</div>
-                <div>
-                    <h1>Deep Rest</h1>
-                    <div class="muted" style="font-size:12px">Revive tus sueños • Tecnología onírica</div>
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Deep Rest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#opiniones">Opiniones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <video autoplay muted loop>
+            <source src="https://example.com/deep-rest-hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="display-3 mb-4">Revive tus recuerdos más preciados</h1>
+            <p class="lead mb-4">Tecnología innovadora para experimentar nuevamente tus sueños y memorias</p>
+            <a href="#contacto" class="btn btn-primary btn-lg" style="background: rgba(0, 123, 255, 0.3); border: 1px solid rgba(0, 123, 255, 0.5); backdrop-filter: blur(5px);">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="sobre-nosotros" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Sobre Nosotros</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg" alt="Equipo Deep Rest" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <h3>Deep Rest: Innovación en la experiencia de los recuerdos</h3>
+                    <p>En Deep Rest, hemos revolucionado la manera en que las personas pueden revivir y experimentar sus recuerdos más preciados. Nuestra tecnología pionera permite a nuestros clientes sumergirse en sus memorias pasadas con una claridad y detalle sin precedentes.</p>
+                    <p>Fundada en 2023, nuestra empresa se ha convertido en líder en el campo de la recuperación y visualización de memorias, combinando la última tecnología en neurociencia con interfaces de usuario intuitivas y seguras.</p>
                 </div>
             </div>
-            <nav>
-                <a href="#hero">Inicio</a>
-                <a href="#about">Sobre Nosotros</a>
-                <a href="#services">Servicios</a>
-                <a href="#faq">FAQ</a>
-                <a href="#reviews">Opiniones</a>
-                <a class="cta" href="#contact">Contáctanos</a>
-            </nav>
-        </header>
+        </div>
+    </section>
 
-        <main>
-            <section id="hero" class="hero">
-                <div class="hero-left">
-                    <div class="kicker">Máquina experimental</div>
-                    <h2>Revive recuerdos y explora tus sueños con seguridad</h2>
-                    <p class="muted">Deep Rest ofrece sesiones controladas con nuestra máquina "Liminal" capaz de
-                        mapear, restaurar y reproducir memorias oníricas. Ideal para terapia, arte y entretenimiento
-                        inmersivo.</p>
-                    <a class="cta" href="#contact">Contáctanos</a>
-                    <a class="cta secondary" href="#services">Ver servicios</a>
-                </div>
-
-                <aside class="device">
-                    <div class="machine">
-                        <!-- Futuristic bed illustration -->
-                        <img src="assets/bed-futuristic.svg" alt="Cama futurista Liminal" />
-                        <div class="label">Liminal Bed · Alpha 0.9</div>
-                    </div>
-                    <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px">
-                        <small class="muted">Sesiones desde 120€</small>
-                        <small class="muted">Valoración: ★★★★☆</small>
-                    </div>
-                </aside>
-            </section>
-
-            <section id="about">
-                <div class="container">
-                    <div class="grid">
-                        <div>
-                            <h3>Sobre Deep Rest</h3>
-                            <p class="muted">Deep Rest es una pyme especializada en neurotecnología experimental
-                                aplicada al mundo onírico. Nuestro equipo de ingenieros, terapeutas y artistas fusiona
-                                hardware seguro con algoritmos interpretativos para revivir, registrar y modular
-                                recuerdos y sueños de forma ética y consentida.</p>
-                            <p class="muted">Trabajamos con protocolos de seguridad, sesiones guiadas y cifrado de
-                                datos. Nuestro objetivo: permitir el acceso creativo y terapéutico a la experiencia
-                                onírica sin comprometer la privacidad.</p>
-                        </div>
-                        <div>
-                            <div class="card">
-                                <h4>Cómo funciona</h4>
-                                <ol class="muted">
-                                    <li>Mapeo no invasivo de ondas cerebrales durante sueño REM.</li>
-                                    <li>Reconstrucción de trazas visuales y emocionales mediante IA.</li>
-                                    <li>Reproducción controlada en sala aislada con guía profesional.</li>
-                                </ol>
-                            </div>
+    <!-- Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="https://images.pexels.com/photos/8412414/pexels-photo-8412414.jpeg" class="card-img-top" alt="Recuperación de Memorias">
+                        <div class="card-body">
+                            <h5 class="card-title">Recuperación de Memorias</h5>
+                            <p class="card-text">Revive tus momentos más especiales con una claridad extraordinaria.</p>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section id="services">
-                <div class="container">
-                    <h3>Servicios</h3>
-                    <p class="muted">Ofrecemos paquetes para creadores, terapeutas y experiencias privadas. A
-                        continuación ejemplos representativos con imágenes de muestra.</p>
-                    <div class="services" style="margin-top:18px">
-                        <div class="service">
-                            <div class="simg" style="background-image:linear-gradient(180deg, rgba(139,46,255,0.25), rgba(255,92,138,0.12)), url('assets/service-session.svg')">
-                            </div>
-                            <div class="stxt">Registro de Sueños</div>
-                        </div>
-                        <div class="service">
-                            <div class="simg" style="background-image:linear-gradient(180deg, rgba(139,46,255,0.18), rgba(255,92,138,0.08)), url('assets/bed-futuristic.svg')">
-                            </div>
-                            <div class="stxt">Recuperación de Recuerdos</div>
-                        </div>
-                        <div class="service">
-                            <div class="simg" style="background-image:linear-gradient(180deg, rgba(139,46,255,0.12), rgba(255,92,138,0.06)), url('assets/pillow-highlight.svg')">
-                            </div>
-                            <div class="stxt">Experiencias Inmersivas</div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg" class="card-img-top" alt="Exploración de Sueños">
+                        <div class="card-body">
+                            <h5 class="card-title">Exploración de Sueños</h5>
+                            <p class="card-text">Vuelve a experimentar y analizar tus sueños más significativos.</p>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section id="faq">
-                <div class="container">
-                    <h3>Preguntas Frecuentes</h3>
-                    <div class="faq">
-                        <div class="faq-item">
-                            <strong>¿Es seguro?</strong>
-                            <div class="muted">Sí. Usamos técnicas no invasivas (EEG) y protocolos clínicos supervisados
-                                por profesionales. Los datos se almacenan cifrados y sólo bajo consentimiento.</div>
-                        </div>
-                        <div class="faq-item">
-                            <strong>¿Puedo recuperar cualquier recuerdo?</strong>
-                            <div class="muted">La tecnología mejora la reconstrucción pero no garantiza recuperar cada
-                                detalle. Funciona mejor con recuerdos recientes y trazas emocionalmente marcadas.</div>
-                        </div>
-                        <div class="faq-item">
-                            <strong>¿Ofrecen soporte terapéutico?</strong>
-                            <div class="muted">Sí. Contamos con psicólogos formados para sesiones pre y
-                                post-visualización.</div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="https://images.pexels.com/photos/6753353/pexels-photo-6753353.jpeg" class="card-img-top" alt="Terapia de Memorias">
+                        <div class="card-body">
+                            <h5 class="card-title">Terapia de Memorias</h5>
+                            <p class="card-text">Sesiones terapéuticas utilizando la tecnología de recuperación de recuerdos.</p>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section id="reviews">
-                <div class="container">
-                    <h3>Opiniones</h3>
-                    <p class="muted">Reseñas verificadas (simuladas) — visualízalas como en Google Reviews.</p>
-                    <div class="card" style="padding:16px;margin-top:12px">
-                        <div id="review-carousel" style="position:relative;overflow:hidden">
-                            <div class="carousel-track" style="display:flex;transition:transform .5s ease">
-                                <!-- Review items -->
-                                <div class="review-item" style="min-width:100%;padding:12px">
-                                    <div style="display:flex;align-items:center;gap:12px">
-                                        <div style="width:48px;height:48px;border-radius:10px;background:#11131a;display:flex;align-items:center;justify-content:center;font-weight:700">MP</div>
-                                        <div>
-                                            <strong>María P.</strong>
-                                            <div class="muted">Madrid · ★★★★★</div>
-                                        </div>
-                                    </div>
-                                    <div class="muted" style="margin-top:12px">"La sesión con Liminal me ayudó a recordar un sueño que llevaba años intentando evocar. Todo fue cuidadoso y profesional."</div>
-                                </div>
-                                <div class="review-item" style="min-width:100%;padding:12px">
-                                    <div style="display:flex;align-items:center;gap:12px">
-                                        <div style="width:48px;height:48px;border-radius:10px;background:#11131a;display:flex;align-items:center;justify-content:center;font-weight:700">CR</div>
-                                        <div>
-                                            <strong>Carlos R.</strong>
-                                            <div class="muted">Barcelona · ★★★★☆</div>
-                                        </div>
-                                    </div>
-                                    <div class="muted" style="margin-top:12px">"Como artista, usé los registros para crear una pieza audiovisual. La fidelidad emocional es impresionante."</div>
-                                </div>
-                                <div class="review-item" style="min-width:100%;padding:12px">
-                                    <div style="display:flex;align-items:center;gap:12px">
-                                        <div style="width:48px;height:48px;border-radius:10px;background:#11131a;display:flex;align-items:center;justify-content:center;font-weight:700">AJ</div>
-                                        <div>
-                                            <strong>Ana J.</strong>
-                                            <div class="muted">Valencia · ★★★★★</div>
-                                        </div>
-                                    </div>
-                                    <div class="muted" style="margin-top:12px">"Excelente atención y resultados sorprendentes. Recomiendo la experiencia guiada."</div>
-                                </div>
-                            </div>
-
-                            <!-- Controls -->
-                            <button id="prev-review" aria-label="Anterior" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:var(--muted);font-size:20px">◀</button>
-                            <button id="next-review" aria-label="Siguiente" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:var(--muted);font-size:20px">▶</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="container">
-                    <div class="grid">
-                        <div>
-                            <h3>Contacta con Deep Rest</h3>
-                            <p class="muted">Reserva una consulta o pide información. Respondenos y acordaremos una
-                                evaluación previa gratuita.</p>
-                            <p class="muted"><strong>Email:</strong> <a href="mailto:info@deeprest.example"
-                                    style="color:var(--accent)">info@deeprest.example</a></p>
-                            <p class="muted"><strong>Teléfono:</strong> +34 600 000 000</p>
-                        </div>
-                        <div>
-                            <div class="card">
-                                <h4>Formulario rápido</h4>
-                                <form action="mailto:info@deeprest.example" method="post" enctype="text/plain">
-                                    <div style="display:flex;flex-direction:column;gap:8px">
-                                        <input name="nombre" placeholder="Tu nombre"
-                                            style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-                                        <input name="email" placeholder="Tu email"
-                                            style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-                                        <textarea name="mensaje" placeholder="Mensaje" rows="4"
-                                            style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
-                                        <div style="display:flex;gap:8px">
-                                            <button class="cta" type="submit">Enviar</button>
-                                            <a class="cta secondary" href="mailto:info@deeprest.example">Enviar por
-                                                correo</a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div>
-                <strong>Deep Rest</strong>
-                <div class="muted">© 2025 Deep Rest · Todos los derechos reservados</div>
             </div>
-            <div class="social">
-                Sigue:
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Preguntas Frecuentes</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            ¿Es seguro revivir mis recuerdos?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sí, nuestra tecnología ha sido rigurosamente probada y certificada por expertos en neurociencia. Utilizamos protocolos de seguridad avanzados para garantizar una experiencia segura y controlada.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            ¿Cuánto dura una sesión típica?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Las sesiones estándar duran entre 30 y 60 minutos, dependiendo del tipo de experiencia y las necesidades específicas del cliente.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            ¿Puedo modificar mis recuerdos?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, nuestra tecnología está diseñada solo para visualizar y experimentar recuerdos existentes, no para modificarlos. Esto garantiza la autenticidad de tus memorias.
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
-</div>
+        </div>
+    </section>
 
-    <script>
-        // Simple reviews carousel
-        (function(){
-            const track = document.querySelector('.carousel-track');
-            const items = document.querySelectorAll('.review-item');
-            const prev = document.getElementById('prev-review');
-            const next = document.getElementById('next-review');
-            let idx = 0;
-            const total = items.length;
-            let timer = null;
+    <!-- Opiniones -->
+    <section id="opiniones" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Opiniones de Nuestros Clientes</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-2">
+                            ★★★★★
+                        </div>
+                        <p class="mb-2">"Una experiencia increíble poder revivir momentos con mis seres queridos. La tecnología es asombrosa."</p>
+                        <strong>- María García</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-2">
+                            ★★★★★
+                        </div>
+                        <p class="mb-2">"La calidad de los recuerdos recuperados es sorprendente. Me ayudó mucho en mi proceso de sanación."</p>
+                        <strong>- Juan Pérez</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-2">
+                            ★★★★★
+                        </div>
+                        <p class="mb-2">"El equipo profesional es excepcional. Me sentí seguro y acompañado durante todo el proceso."</p>
+                        <strong>- Ana Martínez</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            function show(i){
-                idx = (i + total) % total;
-                track.style.transform = `translateX(${-idx * 100}%)`;
-            }
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5>Deep Rest</h5>
+                    <p>Revolucionando la manera de experimentar tus recuerdos</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p>&copy; 2025 Deep Rest. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-            prev.addEventListener('click', ()=>{ show(idx-1); resetTimer(); });
-            next.addEventListener('click', ()=>{ show(idx+1); resetTimer(); });
-
-            function startTimer(){
-                timer = setInterval(()=> show(idx+1), 5000);
-            }
-            function resetTimer(){
-                clearInterval(timer); startTimer();
-            }
-
-            // init
-            show(0);
-            startTimer();
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
