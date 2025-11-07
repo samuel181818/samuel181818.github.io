@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" aria-labelledby="title desc" role="img">
+  <title id="title">Icono sueño</title>
+  <desc id="desc">Tres letras Z flotando con animación, estilo oscuro y acento púrpura</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8b2eff"/>
+      <stop offset="100%" stop-color="#ff5c8a"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="transparent"/>
+
+  <!-- Three Z shapes, staggered positions and animations -->
+  <g font-family="sans-serif" font-weight="800" filter="url(#softGlow)" style="mix-blend-mode:screen">
+    <!-- Larger, bolder Z letters, repositioned -->
+    <text x="16" y="86" font-size="58" fill="url(#g)" opacity="0.98" transform="rotate(-10 16 86)">
+      Z
+      <animateTransform attributeName="transform" type="translate" dur="3s" repeatCount="indefinite" values="0 0; 0 -10; 0 0" begin="0s"/>
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0.85;1;0.85" begin="0s"/>
+    </text>
+
+    <text x="64" y="58" font-size="46" fill="#bfa0ff" opacity="0.95" transform="rotate(-6 64 58)">
+      Z
+      <animateTransform attributeName="transform" type="translate" dur="3.4s" repeatCount="indefinite" values="0 0; 0 -12; 0 0" begin="0.35s"/>
+      <animate attributeName="opacity" dur="3.4s" repeatCount="indefinite" values="0.75;1;0.75" begin="0.35s"/>
+    </text>
+
+    <text x="110" y="94" font-size="38" fill="#ffd1e6" opacity="0.9" transform="rotate(4 110 94)">
+      Z
+      <animateTransform attributeName="transform" type="translate" dur="2.8s" repeatCount="indefinite" values="0 0; 0 -8; 0 0" begin="0.8s"/>
+      <animate attributeName="opacity" dur="2.8s" repeatCount="indefinite" values="0.6;1;0.6" begin="0.8s"/>
+    </text>
+  </g>
+</svg>

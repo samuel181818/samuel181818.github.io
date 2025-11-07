@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contacta · Deep Rest</title>
+    <meta name="description" content="Contacto con Deep Rest - sesiones y consultas sobre Liminal, la máquina para revivir sueños">
+    <style>
+        :root {
+            --bg: #0b0b0d;
+            --panel: #121217;
+            --accent: #8b2eff;
+            --accent-2: #ff5c8a;
+            --muted: #9aa0a6;
+            --glass: rgba(255, 255, 255, 0.03);
+            --max-width: 1100px;
+            color-scheme: dark;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: linear-gradient(180deg, #050506 0%, #081018 60%);
+            margin: 0;
+            color: #e6eef8
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(139, 46, 255, 0.16)
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 600
+        }
+
+        nav a:hover {
+            color: #fff
+        }
+
+        section { padding: 48px 0; border-top:1px solid rgba(255,255,255,0.02)}
+
+        .card { background:var(--panel); padding:18px; border-radius:12px }
+
+        .muted { color:var(--muted) }
+
+        footer{ padding:28px 0; color:var(--muted); display:flex; justify-content:space-between; align-items:center }
+
+        .social a{ margin-left:12px; color:var(--muted); text-decoration:none }
+
+        form input, form textarea{ width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit; box-sizing:border-box }
+        form button{ background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; padding:12px 16px; border-radius:10px; border:0; font-weight:700 }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">DR</div>
+                <div>
+                    <h1>Deep Rest</h1>
+                    <div class="muted" style="font-size:12px">Revive tus sueños • Tecnología onírica</div>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="index.html#sobre-nosotros">Sobre Nosotros</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#reviews">Opiniones</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="contacto">
+                <div class="card">
+                    <h2>Contacto</h2>
+                    <p class="muted">Rellena el formulario para solicitar información o reservar una evaluación.</p>
+                    <form action="mailto:info@deeprest.example" method="post" enctype="text/plain">
+                        <div style="display:grid;gap:12px;margin-top:12px">
+                            <input name="nombre" placeholder="Tu nombre" required>
+                            <input name="email" placeholder="Tu email" type="email" required>
+                            <input name="telefono" placeholder="Teléfono (opcional)">
+                            <textarea name="mensaje" placeholder="¿En qué podemos ayudarte?" rows="6" required></textarea>
+                            <div style="display:flex;gap:8px;justify-content:flex-end">
+                                <button type="submit">Enviar</button>
+                                <a href="mailto:info@deeprest.example" style="align-self:center;color:var(--muted)">Enviar por correo</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <strong>Deep Rest</strong>
+                <div class="muted">© 2025 Deep Rest · Todos los derechos reservados</div>
+            </div>
+            <div class="social">
+                <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
